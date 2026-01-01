@@ -1,0 +1,30 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "agentic",
+    "Agentic",
+    "YYC",
+    "yyc3",
+    "macaron",
+    "xiaoyu",
+    "actuals",
+    "rmse",
+    "RMSE",
+    "mape",
+    "MAPE"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".next/**",
+    "coverage/**",
+    "*.min.js",
+    "*.min.css",
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml",
+    "bun.lockb"
+  ]
+}
