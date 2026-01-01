@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useBirthday } from '../contexts/BirthdayContext';
 import { useAuth } from '@/hooks/useAuth';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,15 +7,6 @@ import { HiSparkles, HiEmojiHappy } from 'react-icons/hi';
 import { BiSend } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 import { toast } from 'react-toastify';
-
-interface BirthdayWish {
-  id: string;
-  recipientName: string;
-  message: string;
-  senderName: string;
-  createdAt: string;
-  isPublic: boolean;
-}
 
 const BirthdayPage: React.FC = () => {
   const { birthdayWishes, loading, error, createBirthdayWish, deleteBirthdayWish } = useBirthday();
@@ -26,7 +17,6 @@ const BirthdayPage: React.FC = () => {
     message: '',
     isPublic: true
   });
-  const [selectedEmoji, setSelectedEmoji] = useState('');
   const [filter, setFilter] = useState<'all' | 'public' | 'private'>('all');
 
   const emojis = [
@@ -80,7 +70,7 @@ const BirthdayPage: React.FC = () => {
       toast.success('生日祝福发送成功！');
       setFormData({ recipientName: '', message: '', isPublic: true });
       setShowForm(false);
-    } catch (error) {
+    } catch (_error) {
       toast.error('发送生日祝福失败，请重试');
     }
   };
@@ -91,7 +81,7 @@ const BirthdayPage: React.FC = () => {
     try {
       await deleteBirthdayWish(id);
       toast.success('生日祝福已删除');
-    } catch (error) {
+    } catch (_error) {
       toast.error('删除失败，请重试');
     }
   };

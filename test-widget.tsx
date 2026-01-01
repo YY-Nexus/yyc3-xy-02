@@ -6,7 +6,9 @@ export default function TestWidget() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    requestAnimationFrame(() => {
+      setMounted(true)
+    })
 
     // 清理所有localStorage
     try {

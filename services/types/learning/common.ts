@@ -96,11 +96,11 @@ export class KnowledgeGraph {
     this.edges.set(edgeId, edge)
   }
 
-  getRelatedNodes(id: string): unknown[] {
+  getRelatedNodes(_id: string): unknown[] {
     return Array.from(this.nodes.values())
   }
 
-  findPath(from: string, to: string): unknown[] {
+  findPath(_from: string, _to: string): unknown[] {
     return []
   }
 }
